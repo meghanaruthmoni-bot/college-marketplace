@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Marketplace</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .box {
+            background: white;
+            padding: 15px;
+            margin: 20px auto;
+            width: 300px;
+            border-radius: 10px;
+        }
+        input, button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+        }
+        .item {
+            border-bottom: 1px solid #ddd;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>College Marketplace</h1>
+
+<div class="box">
+    <h3>Post Item</h3>
+    <input id="name" placeholder="Item name">
+    <input id="price" placeholder="Price">
+    <input id="contact" placeholder="Contact number">
+    <button onclick="addItem()">Add Item</button>
+</div>
+
+<div class="box">
+    <h3>Items</h3>
+    <div id="list"></div>
+</div>
+
+<script>
+function addItem() {
+    let name = document.getElementById("name").value;
+    let price = document.getElementById("price").value;
+    let contact = document.getElementById("contact").value;
+
+    if(name === "" || price === "" || contact === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let item = document.createElement("div");
+    item.className = "item";
+    item.innerHTML =
+        "<b>" + name + "</b><br>" +
+        "Price: " + price + "<br>" +
+        "Contact: " + contact;
+
+    document.getElementById("list").appendChild(item);
+
+    // clear inputs
+    document.getElementById("name").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("contact").value = "";
+}
+</script>
+
+</body>
+</html>s
